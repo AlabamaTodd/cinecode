@@ -9,14 +9,22 @@
 
 <p align="center">
   <a href="README.md">Türkçe</a> ·
+  <a href="README.zh-CN.md">简体中文</a> ·
+  <a href="README.ja.md">日本語</a> ·
   <a href="#install">Install</a> ·
   <a href="#quick-start">Quick start</a> ·
-  <a href="#faq">FAQ</a> ·
-  <a href="https://github.com/sarpstar/cinecode/actions/workflows/tests.yml"><img src="https://github.com/sarpstar/cinecode/actions/workflows/tests.yml/badge.svg" alt="tests" align="center"></a>
+  <a href="#faq">FAQ</a>
 </p>
 
 <p align="center">
-  <img src="docs/media/reel.gif" alt="30 seconds from films made with cinecode: a wave frozen at sunset, a linocut mail train in the snow, an engraved watch movement, a 3D tortoise, a miniature city under falling code, three vertical explainers, a film camera on rails in a wheat field, a pop-art tower, dogs drawn as a point cloud, an animated forest tale, a graphic city, a bakery and a jazz poster, a ship going down at night, stone arches over still water" width="100%">
+  <a href="https://github.com/sarpstar/cinecode/actions/workflows/tests.yml"><img src="https://img.shields.io/github/actions/workflow/status/sarpstar/cinecode/tests.yml?branch=main&label=tests&style=flat-square" alt="tests"></a>
+  <img src="https://img.shields.io/badge/license-MIT-C37232?style=flat-square" alt="license: MIT">
+  <img src="https://img.shields.io/badge/agents-Claude%20Code%20%C2%B7%20Cursor-1a1a1a?style=flat-square" alt="agents: Claude Code, Cursor">
+  <img src="https://img.shields.io/badge/render-three.js%20%C2%B7%20ffmpeg-1a1a1a?style=flat-square" alt="render: three.js, ffmpeg">
+</p>
+
+<p align="center">
+  <img src="docs/media/reel.gif" alt="30 seconds from films made with cinecode: stone arches at sunrise, a linocut mail train in the snow, an engraved watch movement, a 3D hare in the desert, a miniature city under falling code, a pop-art whale under water, a road through orange gates, three vertical explainers, a film camera on rails in a wheat field, dogs under pillars of golden light, a match, a bakery and a jazz poster, a forest tale with a lantern, a ship far off on the horizon at night" width="100%">
 </p>
 <p align="center"><sub>30 seconds from films made with cinecode. Every frame is rendered from code in headless Chrome.</sub></p>
 

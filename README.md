@@ -9,14 +9,22 @@
 
 <p align="center">
   <a href="README.en.md">English</a> ·
+  <a href="README.zh-CN.md">简体中文</a> ·
+  <a href="README.ja.md">日本語</a> ·
   <a href="#kurulum">Kurulum</a> ·
   <a href="#hızlı-başlangıç">Hızlı başlangıç</a> ·
-  <a href="#sss">SSS</a> ·
-  <a href="https://github.com/sarpstar/cinecode/actions/workflows/tests.yml"><img src="https://github.com/sarpstar/cinecode/actions/workflows/tests.yml/badge.svg" alt="tests" align="center"></a>
+  <a href="#sss">SSS</a>
 </p>
 
 <p align="center">
-  <img src="docs/media/reel.gif" alt="cinecode ile yapılmış filmlerden 30 saniye: gün batımında donmuş bir dalga, karda linol baskı bir posta treni, oyulmuş bir saat mekanizması, 3B bir kaplumbağa, yağan kodun altında minyatür bir şehir, üç dikey açıklayıcı, buğday tarlasında raylı bir film kamerası, pop-art bir kule, nokta bulutundan köpekler, animasyon bir orman masalı, grafik bir şehir, bir fırın ve bir caz afişi, gece batan bir gemi, durgun su üstünde taş kemerler" width="100%">
+  <a href="https://github.com/sarpstar/cinecode/actions/workflows/tests.yml"><img src="https://img.shields.io/github/actions/workflow/status/sarpstar/cinecode/tests.yml?branch=main&label=tests&style=flat-square" alt="tests"></a>
+  <img src="https://img.shields.io/badge/license-MIT-C37232?style=flat-square" alt="license: MIT">
+  <img src="https://img.shields.io/badge/agents-Claude%20Code%20%C2%B7%20Cursor-1a1a1a?style=flat-square" alt="agents: Claude Code, Cursor">
+  <img src="https://img.shields.io/badge/render-three.js%20%C2%B7%20ffmpeg-1a1a1a?style=flat-square" alt="render: three.js, ffmpeg">
+</p>
+
+<p align="center">
+  <img src="docs/media/reel.gif" alt="cinecode ile yapılmış filmlerden 30 saniye: gün doğumunda taş kemerler, karda linol baskı bir posta treni, oyulmuş bir saat mekanizması, çölde 3B bir tavşan, yağan kodun altında minyatür bir şehir, su altında pop-art bir balina, turuncu kapılardan geçen bir yol, üç dikey açıklayıcı, buğday tarlasında raylı bir film kamerası, altın ışık sütunları altında köpekler, bir kibrit, bir fırın ve bir caz afişi, fenerli bir çocuğun orman masalı, gece ufukta bir gemi" width="100%">
 </p>
 <p align="center"><sub>cinecode ile yapılmış filmlerden 30 saniye. Her kare başsız Chrome'da koddan üretildi.</sub></p>
 
