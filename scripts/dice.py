@@ -231,7 +231,7 @@ def update_films(change):
         try:
             os.close(os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY))
             break
-        except FileExistsError:
+        except (FileExistsError, PermissionError):     # Windows: a lock still being deleted refuses a new one
             try:
                 if time.time() - os.path.getmtime(lock) > 30:
                     os.remove(lock)
@@ -252,10 +252,14 @@ def update_films(change):
     except ValueError:
         raise OSError("the film memory cannot be read")
     finally:
-        try:
-            os.remove(lock)
-        except OSError:
-            pass
+        for _ in range(40):
+            try:
+                os.remove(lock)
+                break
+            except PermissionError:          # Windows: the next chat's open of the lock can hold it for a moment
+                time.sleep(0.05)
+            except OSError:
+                break
 
 
 def remember(folder="."):
