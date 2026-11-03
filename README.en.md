@@ -335,7 +335,7 @@ From the kit folder run `python3 -m unittest discover -s tests`; put `CINECODE_B
 
 ## Credits
 
-Made by Sarp Yıldız ([@sarpstar](https://github.com/sarpstar)). MIT licence, see [LICENSE](LICENSE).
+Made by Sarp Yıldız ([@sarpstar](https://github.com/sarpstar)) together with Claude, in Claude Code and Cursor. MIT licence, see [LICENSE](LICENSE).
 Built on [three.js](https://github.com/mrdoob/three.js) (MIT) and [pmndrs/postprocessing](https://github.com/pmndrs/postprocessing) (Zlib), loaded at render time, not bundled.
 Some ideas inspired by [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) (MIT).
 The character kit (`references/characters.md`) is inspired by John Heibel's [ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase); the cliché and colour checks are inspired by a study of the films in [yihui-dev/awesome-opus5-5-videos](https://github.com/yihui-dev/awesome-opus5-5-videos). Ideas only: no code, prompts or frames from either are included.

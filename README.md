@@ -335,7 +335,7 @@ Kit klasöründe `python3 -m unittest discover -s tests` çalıştır; gerçek C
 
 ## Emeği geçenler
 
-Sarp Yıldız ([@sarpstar](https://github.com/sarpstar)) tarafından yapıldı. MIT lisansı, bkz. [LICENSE](LICENSE).
+Sarp Yıldız ([@sarpstar](https://github.com/sarpstar)) tarafından, Claude ile birlikte Claude Code ve Cursor içinde yapıldı. MIT lisansı, bkz. [LICENSE](LICENSE).
 [three.js](https://github.com/mrdoob/three.js) (MIT) ve [pmndrs/postprocessing](https://github.com/pmndrs/postprocessing) (Zlib) üzerine kuruludur; render sırasında yüklenir, pakete dahil edilmez.
 Bazı fikirler [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) (MIT) projesinden ilham aldı.
 Karakter kiti (`references/characters.md`) John Heibel'in [ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase) projesinden, klişe ve renk kontrolleri [yihui-dev/awesome-opus5-5-videos](https://github.com/yihui-dev/awesome-opus5-5-videos) koleksiyonundaki filmlerin incelenmesinden ilham aldı. Yalnızca fikir: ikisinden de kod, prompt ya da kare alınmadı.

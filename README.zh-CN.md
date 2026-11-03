@@ -335,7 +335,7 @@ my-film/
 
 ## 致谢
 
-由 Sarp Yıldız（[@sarpstar](https://github.com/sarpstar)）制作。MIT 许可证，见 [LICENSE](LICENSE)。
+由 Sarp Yıldız（[@sarpstar](https://github.com/sarpstar)）与 Claude 一起，在 Claude Code 和 Cursor 中制作。MIT 许可证，见 [LICENSE](LICENSE)。
 基于 [three.js](https://github.com/mrdoob/three.js)（MIT）和 [pmndrs/postprocessing](https://github.com/pmndrs/postprocessing)（Zlib）构建，二者在渲染时加载，不随包分发。
 部分想法受 [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)（MIT）启发。
 角色工具包（`references/characters.md`）受 John Heibel 的 [ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase) 启发；陈词滥调与色彩检查受对 [yihui-dev/awesome-opus5-5-videos](https://github.com/yihui-dev/awesome-opus5-5-videos) 中影片的研究启发。仅借鉴想法：未包含二者的任何代码、提示词或画面。

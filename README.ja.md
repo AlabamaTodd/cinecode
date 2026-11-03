@@ -335,7 +335,7 @@ my-film/
 
 ## クレジット
 
-作者：Sarp Yıldız（[@sarpstar](https://github.com/sarpstar)）。MIT ライセンス。[LICENSE](LICENSE) を参照してください。
+作者：Sarp Yıldız（[@sarpstar](https://github.com/sarpstar)）。Claude とともに、Claude Code と Cursor で作られました。MIT ライセンス。[LICENSE](LICENSE) を参照してください。
 [three.js](https://github.com/mrdoob/three.js)（MIT）と [pmndrs/postprocessing](https://github.com/pmndrs/postprocessing)（Zlib）の上に構築されています。これらはレンダリング時に読み込まれ、同梱はしていません。
 一部のアイデアは [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)（MIT）に着想を得ています。
 キャラクターキット（`references/characters.md`）は John Heibel の [ClaudeAnimationBase](https://github.com/JohnHeibel/ClaudeAnimationBase) に、クリシェと色のチェックは [yihui-dev/awesome-opus5-5-videos](https://github.com/yihui-dev/awesome-opus5-5-videos) の作品群の研究に着想を得ています。取り入れたのはアイデアだけで、どちらのコード、プロンプト、フレームも含まれていません。
