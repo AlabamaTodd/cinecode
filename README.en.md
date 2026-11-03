@@ -34,7 +34,11 @@ It runs inside **Claude Code** (desktop app, VS Code extension, terminal) or **C
 
 ### Short films, made of code
 
-Say an idea in a sentence. The agent offers a few readings of it, each grown from something real drawn at random (a museum object, a living species, a picture from space, an invention, a heritage site, a craft), so your film does not start where every generated film starts, and each checked against your own past films so it never hands you the same film twice. You choose what the film is made of (3D realistic with scanned materials and real light, 2D animation, hand-made paint, ink, paper or clay, motion design, a pixel screen), pick a look from a board of stills from real cinema, and approve two scenes before the rest is built.
+Say what's on your mind in one sentence; you shape the rest together.
+
+- **It doesn't settle for the obvious.** The agent crosses your idea with something real drawn at random from the world: a museum piece, an animal, a photo from space, an old invention, a historic site, a craft. So instead of the film anyone would make first, you get takes on your idea you hadn't thought of yourself.
+- **It doesn't repeat itself.** Every suggestion is checked against the films you've already made, so you never get the same film twice.
+- **You always have the last word.** You choose what the film is made of: 3D with real light, 2D animation, paint, ink, paper, clay, motion graphics or pixels. You pick the look from a board of stills from real films, and you see and approve the first two scenes before the whole film is built.
 
 ### Long videos for YouTube
 
@@ -250,30 +254,45 @@ Notes are applied only to the shots, lines or sound layers they touch; each roun
 ## What is inside
 
 ```text
-SKILL.md                 the skill: routes, help menu, mode and purpose choice, both modes in short, hard rules
-AGENTS.md                pointer for agents that read AGENTS.md
-references/              steering, jury, film mode, quick mode, writer prompt, purpose (cinematic, ad & product), footage edit,
-                         own music, reference video, camera moves, motion, motion design, characters (a stylised cast), finish (the quality toolbox), context protocol, writing, looks, typography, sound, craft, engine, assets and licences
-templates/               INTERVIEW, ROADMAP, SCRIPT, STATE, HANDOFF, shots.example.json, LICENSES.csv,
-                         type-specimen.html, quick/ (film.html starter, HELPERS.md, REVIEWER.md, short STATE.md)
-scripts/                 init_film.py, make.py, fonts.py, capture.mjs, animatic.py, mix.py, master_audio.py, qc.py,
-                         scene_check.py, validate_shots.py, asset_search.py, deal.py, styles.py, formats.py,
-                         direction.py, beat_grid.py, voice_treat.py, ref_video.py, keys.py, tts.py, snapshot.py,
-                         footage_cut.py, type_deal.py, type_refs.py, type_extract.py, captions.py,
-                         usage.py, guard.py, words_check.py, handoff.py, samples.py, sounds.py,
-                         moves.py, lyrics_align.py, brief.py, dice.py, hook.cjs (starts the guard),
-                         sparks.json and seeds.json (the decks deal.py draws from)
-styles/                  58 style recipes (51 lemo-opuscar, MIT; 7 the kit's own) + index.json, aliases.json
-starter/                 scene.html + looks.mjs (three.js, eight looks, text overlay, motion blur, gate weave, print curve),
-                         camera.mjs (named moves), type.mjs (type roles, Turkish-safe checks),
-                         index.html (offline shader)
+cinecode/
+├── SKILL.md              the skill: the flow, the questions and the hard rules; every film chat starts here
+├── AGENTS.md             the entry point for agents that read AGENTS.md
+├── references/           the craft guides
+│   ├── quick-mode.md     Quick mode, step by step
+│   ├── film-mode.md      Film mode: six approved steps
+│   ├── writing.md        script, hook, prediction test, overlap check
+│   ├── looks.md          look, light, texture; with craft.md and finish.md
+│   ├── camera-moves.md   camera language; motion with motion.md and motion-design.md
+│   ├── typography.md     type; sound.md for sound, music-video.md for your own song
+│   └── purpose-*.md      cinematic film, or ad and product
+├── scripts/              the tools (Python standard library and Node)
+│   ├── init_film.py      sets up the film's folder
+│   ├── make.py           stills, draft and final, one command each
+│   ├── capture.mjs       frame-by-frame render in headless Chrome
+│   ├── deal.py, dice.py  sparks and the outside dice
+│   ├── direction.py      the style board; with styles.py, asset_search.py, fonts.py
+│   ├── mix.py            the mix; master_audio.py (−14 LUFS), tts.py (narrator), beat_grid.py
+│   ├── qc.py             quality checks; with scene_check.py, words_check.py
+│   └── guard.py          the guard: enforces the rules on the spot (with hook.cjs, Claude Code)
+├── templates/            a new film's files and the Quick mode starter page
+├── starter/              the three.js scene: eight looks, named camera moves, a type layer
+├── styles/               58 style recipes (51 from lemo-opuscar, MIT; 7 the kit's own)
+├── docs/                 README images and the font library
+└── tests/                the test suite, run on Windows and Linux on every push
 ```
 
-A film project made by the kit looks like this (Quick mode: `STATE.md film.html LICENSES.csv AGENTS.md refs/ research/ notes/ assets/ audio/ tools/ review/ renders/ logs/`; Film mode below):
+A film folder the kit sets up:
 
 ```text
-my-film/  STATE.md INTERVIEW.md ROADMAP.md SCRIPT.md HANDOFF.md shots.json LICENSES.csv AGENTS.md
-          refs/ (your references)  notes/ (note rounds)  engine/ (scenes)  research/  audio/  assets/  tools/  review/  renders/  logs/
+my-film/
+├── <title>.mp4           the finished film
+├── STATE.md              where the film stands; every new chat continues from here
+├── film.html             Quick mode: the film itself, one page of code
+├── ROADMAP.md, SCRIPT.md Film mode: roadmap and script; the scenes live in engine/
+├── refs/, research/      your references and the research
+├── audio/, assets/       sound and downloaded material; their licences in LICENSES.csv
+├── review/, renders/     check frames and drafts
+└── tools/                this film's copy of the kit's tools
 ```
 
 **Where things are saved:** each film is its own folder (the finished film sits at its top as `<title>.mp4`). What carries over from film to film lives in `~/.cinecode/`: your API keys (`keys.env`, entered once), saved formats, the taste log and download caches. The kit's own folder is never written to.

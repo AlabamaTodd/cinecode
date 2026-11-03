@@ -34,7 +34,11 @@ Kendi bilgisayarında, **Claude Code** (masaüstü uygulaması, VS Code eklentis
 
 ### Kodla yapılmış kısa filmler
 
-Fikrini bir cümleyle söyle. Ajan sana birkaç okuma sunar: her biri rastgele çekilen gerçek bir şeyden doğar (bir müze nesnesi, bir canlı türü, uzaydan bir görüntü, bir icat, bir miras alanı, bir zanaat), böylece filmin her üretilmiş filmin başladığı yerden başlamaz; her biri senin önceki filmlerinle karşılaştırılır, aynı filmi sana ikinci kez vermez. Filmin neyden yapılacağını seçersin (taranmış malzeme ve gerçek ışıkla 3B gerçekçi, 2B animasyon, el yapımı boya, mürekkep, kâğıt ya da kil, hareketli grafik, piksel ekran), gerçek sinemadan karelerle kurulan bir panodan görünümü seçersin ve gerisi kurulmadan önce iki sahneyi onaylarsın.
+Aklındakini tek cümleyle yaz; gerisini birlikte kurarsınız.
+
+- **Sıradan fikirde kalmaz.** Ajan fikrini, dünyadan rastgele çekilen gerçek bir şeyle buluşturur: bir müze eseri, bir hayvan, uzaydan bir fotoğraf, eski bir icat, tarihî bir yer, bir zanaat. Böylece sana herkesin aklına ilk gelen filmi değil, fikrinin senin bile düşünmediğin yorumlarını getirir.
+- **Kendini tekrar etmez.** Her öneri senin daha önce yaptığın filmlerle karşılaştırılır; aynı filmi sana ikinci kez önermez.
+- **Son söz hep senin.** Filmin neyden yapılacağını sen seçersin: gerçek ışıklı 3B, 2B animasyon, boya, mürekkep, kâğıt, kil, hareketli grafik ya da piksel. Görünümü gerçek filmlerden karelerle kurulmuş bir panodan seçersin; film bütünüyle kurulmadan önce ilk iki sahneyi görüp onaylarsın.
 
 ### Uzun YouTube videoları
 
@@ -250,30 +254,45 @@ Notlar yalnızca dokundukları planlara, repliklere ya da ses katmanlarına uygu
 ## İçinde ne var
 
 ```text
-SKILL.md                 beceri: yönlendirmeler, yardım menüsü, mod ve amaç seçimi, iki mod kısaca, kesin kurallar
-AGENTS.md                AGENTS.md okuyan ajanlar için yönlendirme
-references/              yönlendirme, jüri, film modu, hızlı mod, yazar talimatı, amaç (sinematik, reklam & ürün), ham kayıt kurgusu,
-                         kendi müziğin, referans video, kamera hareketleri, hareket, motion design, karakterler (stilize kadro), kalite araç kutusu, bağlam protokolü, yazım, görünüm, tipografi, ses, zanaat, motor, varlıklar ve lisanslar
-templates/               INTERVIEW, ROADMAP, SCRIPT, STATE, HANDOFF, shots.example.json, LICENSES.csv,
-                         type-specimen.html, quick/ (film.html başlangıç dosyası, HELPERS.md, REVIEWER.md, kısa STATE.md)
-scripts/                 init_film.py, make.py, fonts.py, capture.mjs, animatic.py, mix.py, master_audio.py, qc.py,
-                         scene_check.py, validate_shots.py, asset_search.py, deal.py, styles.py, formats.py,
-                         direction.py, beat_grid.py, voice_treat.py, ref_video.py, keys.py, tts.py, snapshot.py,
-                         footage_cut.py, type_deal.py, type_refs.py, type_extract.py, captions.py,
-                         usage.py, guard.py, words_check.py, handoff.py, samples.py, sounds.py,
-                         moves.py, lyrics_align.py, brief.py, dice.py, hook.cjs (starts the guard),
-                         sparks.json and seeds.json (the decks deal.py draws from)
-styles/                  58 stil tarifi (51'i lemo-opuscar, MIT; 7'si kitin kendi) + index.json, aliases.json
-starter/                 scene.html + looks.mjs (three.js, sekiz görünüm, yazı katmanı, hareket bulanıklığı, gate weave,
-                         baskı eğrisi), camera.mjs (adlandırılmış hareketler), type.mjs (yazı rolleri, Türkçe güvenli kontroller),
-                         index.html (çevrimdışı shader)
+cinecode/
+├── SKILL.md              beceri: akış, sorular ve kesin kurallar; her film sohbeti bununla başlar
+├── AGENTS.md             AGENTS.md okuyan ajanlar için giriş
+├── references/           zanaat rehberleri
+│   ├── quick-mode.md     Hızlı mod, adım adım
+│   ├── film-mode.md      Film modu: altı onaylı adım
+│   ├── writing.md        senaryo, kanca, tahmin testi, çakışma kontrolü
+│   ├── looks.md          görünüm, ışık, doku; craft.md ve finish.md ile
+│   ├── camera-moves.md   kamera dili; motion.md ve motion-design.md ile hareket
+│   ├── typography.md     yazı; sound.md ses, music-video.md kendi şarkın
+│   └── purpose-*.md      sinematik film ya da reklam ve ürün
+├── scripts/              araçlar (Python standart kütüphanesi ve Node)
+│   ├── init_film.py      film klasörünü kurar
+│   ├── make.py           kareler, taslak ve final tek komutla
+│   ├── capture.mjs       başsız Chrome'da kare kare render
+│   ├── deal.py, dice.py  kıvılcımlar ve dış zar
+│   ├── direction.py      stil panosu; styles.py, asset_search.py, fonts.py ile
+│   ├── mix.py            miks; master_audio.py (−14 LUFS), tts.py (anlatıcı), beat_grid.py
+│   ├── qc.py             kalite kontrolleri; scene_check.py, words_check.py ile
+│   └── guard.py          bekçi: kuralları anında uygular (hook.cjs ile, Claude Code)
+├── templates/            yeni bir filmin dosyaları ve Hızlı mod başlangıç sayfası
+├── starter/              three.js sahnesi: sekiz görünüm, adlandırılmış kamera hareketleri, yazı katmanı
+├── styles/               58 stil tarifi (51'i lemo-opuscar, MIT; 7'si kitin kendi)
+├── docs/                 README görselleri ve font kütüphanesi
+└── tests/                her gönderimde Windows ve Linux'ta çalışan test takımı
 ```
 
-Kitin oluşturduğu bir film projesi şöyle görünür (Hızlı mod: `STATE.md film.html LICENSES.csv AGENTS.md refs/ research/ notes/ assets/ audio/ tools/ review/ renders/ logs/`; Film modu aşağıda):
+Kitin kurduğu bir film klasörü:
 
 ```text
-filmim/   STATE.md INTERVIEW.md ROADMAP.md SCRIPT.md HANDOFF.md shots.json LICENSES.csv AGENTS.md
-          refs/ (referansların)  notes/ (not turları)  engine/ (sahneler)  research/  audio/  assets/  tools/  review/  renders/  logs/
+filmim/
+├── <başlık>.mp4          bitmiş film
+├── STATE.md              filmin durumu; her yeni sohbet buradan devam eder
+├── film.html             Hızlı mod: filmin kendisi, tek sayfa kod
+├── ROADMAP.md, SCRIPT.md Film modu: yol haritası ve senaryo; sahneler engine/ içinde
+├── refs/, research/      referansların ve araştırma
+├── audio/, assets/       ses ve indirilen malzeme; lisansları LICENSES.csv'de
+├── review/, renders/     kontrol kareleri ve taslaklar
+└── tools/                kitin araçlarının bu filme ait kopyası
 ```
 
 **Dosyalar nerede durur:** her film kendi klasörüdür (bitmiş film en üstte `<başlık>.mp4` olarak durur). Filmden filme taşınanlar `~/.cinecode/` içindedir: API anahtarların (`keys.env`, bir kez girilir), kayıtlı formatlar, zevk günlüğü ve indirme önbellekleri. Kitin kendi klasörüne hiçbir şey yazılmaz.

@@ -34,7 +34,11 @@
 
 ### 用代码做出的短片
 
-用一句话说出你的创意。智能体会给出几种解读，每一种都从随机抽取的真实事物生发而来（一件博物馆藏品、一个现存物种、一张太空照片、一项发明、一处文化遗产、一门手艺），让你的影片不必从所有生成影片都相同的起点出发；每种解读还会与你过去的作品比对，确保不会把同一部片子交给你两次。你来决定影片用什么做成（使用扫描材质和真实光照的 3D 写实、2D 动画、手绘颜料、水墨、纸艺或黏土、动态设计、像素屏），从一组取自真实电影的剧照中挑选画面风格，并在其余部分动工之前先确认两个场景。
+用一句话说出你的想法，剩下的一起来完成。
+
+- **不落俗套。** 智能体会把你的想法和一件从世界上随机抽取的真实事物碰撞在一起：一件博物馆藏品、一种动物、一张太空照片、一项古老的发明、一处历史遗迹、一门手艺。所以你得到的不是谁都会先想到的那部片子，而是连你自己都没想到的版本。
+- **不重复自己。** 每个提案都会和你做过的片子比对，同一部片子不会给你第二次。
+- **最终由你拍板。** 影片用什么做成由你决定：真实光照的 3D、2D 动画、颜料、水墨、纸艺、黏土、动态图形或像素。你从一组真实电影剧照组成的面板里挑选画面风格，并在整部片子动工之前先看到并确认前两个场景。
 
 ### YouTube 长视频
 
@@ -250,30 +254,45 @@ git clone https://github.com/sarpstar/cinecode.git ~/.cursor/skills/cinecode
 ## 包含哪些内容
 
 ```text
-SKILL.md                 技能本体：路由、帮助菜单、模式与用途选择、两种模式简介、硬性规则
-AGENTS.md                供读取 AGENTS.md 的智能体使用的指引
-references/              引导、评审团、电影模式、快速模式、编剧提示词、用途（电影感、广告与产品）、素材剪辑、
-                         自有音乐、参考视频、运镜、运动、动态设计、角色（风格化角色阵容）、后期（质量工具箱）、上下文协议、写作、画面风格、字体排印、声音、技艺、引擎、素材与授权
-templates/               INTERVIEW, ROADMAP, SCRIPT, STATE, HANDOFF, shots.example.json, LICENSES.csv,
-                         type-specimen.html, quick/（film.html 起始模板, HELPERS.md, REVIEWER.md, 精简版 STATE.md）
-scripts/                 init_film.py, make.py, fonts.py, capture.mjs, animatic.py, mix.py, master_audio.py, qc.py,
-                         scene_check.py, validate_shots.py, asset_search.py, deal.py, styles.py, formats.py,
-                         direction.py, beat_grid.py, voice_treat.py, ref_video.py, keys.py, tts.py, snapshot.py,
-                         footage_cut.py, type_deal.py, type_refs.py, type_extract.py, captions.py,
-                         usage.py, guard.py, words_check.py, handoff.py, samples.py, sounds.py,
-                         moves.py, lyrics_align.py, brief.py, dice.py, hook.cjs（启动守护程序）,
-                         sparks.json 和 seeds.json（deal.py 从中抽取的牌组）
-styles/                  58 个风格配方（51 个来自 lemo-opuscar，MIT；7 个为工具包自有）+ index.json, aliases.json
-starter/                 scene.html + looks.mjs（three.js、八种风格、文字叠加层、运动模糊、片门抖动、印片曲线）,
-                         camera.mjs（有命名的运镜）, type.mjs（字体角色、土耳其语安全检查）,
-                         index.html（离线着色器）
+cinecode/
+├── SKILL.md              技能本体：流程、提问和硬性规则；每个电影对话都从这里开始
+├── AGENTS.md             给读取 AGENTS.md 的智能体的入口
+├── references/           创作指南
+│   ├── quick-mode.md     快速模式，逐步说明
+│   ├── film-mode.md      电影模式：六个需要确认的步骤
+│   ├── writing.md        剧本、开场钩子、预测测试、重复检查
+│   ├── looks.md          画面风格、光线、质感；配合 craft.md 和 finish.md
+│   ├── camera-moves.md   镜头语言；运动见 motion.md 和 motion-design.md
+│   ├── typography.md     字体排印；声音见 sound.md，用你自己的歌见 music-video.md
+│   └── purpose-*.md      电影短片，或广告与产品片
+├── scripts/              工具（Python 标准库和 Node）
+│   ├── init_film.py      建立影片文件夹
+│   ├── make.py           静帧、样片和成片，各一条命令
+│   ├── capture.mjs       在无头 Chrome 中逐帧渲染
+│   ├── deal.py, dice.py  灵感卡和外部骰子
+│   ├── direction.py      风格面板；配合 styles.py、asset_search.py、fonts.py
+│   ├── mix.py            混音；master_audio.py（−14 LUFS）、tts.py（旁白）、beat_grid.py
+│   ├── qc.py             质量检查；配合 scene_check.py、words_check.py
+│   └── guard.py          守卫：当场执行规则（配合 hook.cjs，Claude Code）
+├── templates/            新影片的文件和快速模式的起始页面
+├── starter/              three.js 场景：八种画面风格、命名的运镜、文字层
+├── styles/               58 份风格配方（51 份来自 lemo-opuscar，MIT；7 份为本套件自有）
+├── docs/                 README 图片和字体库
+└── tests/                测试套件，每次推送都在 Windows 和 Linux 上运行
 ```
 
-由工具包创建的影片项目结构如下（快速模式：`STATE.md film.html LICENSES.csv AGENTS.md refs/ research/ notes/ assets/ audio/ tools/ review/ renders/ logs/`；电影模式见下）：
+套件建立的影片文件夹：
 
 ```text
-my-film/  STATE.md INTERVIEW.md ROADMAP.md SCRIPT.md HANDOFF.md shots.json LICENSES.csv AGENTS.md
-          refs/（你的参考）  notes/（意见轮次）  engine/（场景）  research/  audio/  assets/  tools/  review/  renders/  logs/
+my-film/
+├── <片名>.mp4            成片
+├── STATE.md              影片进度；每个新对话都从这里接着做
+├── film.html             快速模式：影片本身，一页代码
+├── ROADMAP.md, SCRIPT.md 电影模式：路线图和剧本；场景在 engine/ 中
+├── refs/, research/      你的参考和调研
+├── audio/, assets/       声音和下载的素材；许可证记在 LICENSES.csv
+├── review/, renders/     检查帧和样片
+└── tools/                套件工具在这部影片里的副本
 ```
 
 **文件保存在哪里：** 每部影片都是一个独立文件夹（成片以 `<title>.mp4` 的形式放在它的最上层）。在不同影片之间延续使用的东西保存在 `~/.cinecode/` 中：你的 API 密钥（`keys.env`，只需输入一次）、保存的格式、口味日志和下载缓存。工具包自身的文件夹从不写入。

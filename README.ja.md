@@ -34,7 +34,11 @@
 
 ### コードで作る短編映画
 
-アイデアを一文で伝えてください。エージェントはそのアイデアの解釈をいくつか提案します。どれもランダムに引いた実在のもの（博物館の所蔵品、現存する生物種、宇宙から撮られた写真、発明、世界遺産、伝統工芸）から育てたものなので、あなたの映画は、生成された映画がみな出発するのと同じ地点からは始まりません。さらに、それぞれをあなたの過去の作品と照らし合わせるため、同じ映画を二度出してくることはありません。映画の素材（スキャンしたマテリアルと本物の光による 3D リアル、2D アニメーション、手描きの絵の具、インク、紙や粘土、モーションデザイン、ピクセルスクリーン）を選び、実在の映画のスチルを並べたボードからルックを選び、残りが作られる前に 2 つのシーンを承認します。
+思いついたことを一文で伝えるだけ。あとは一緒に形にしていきます。
+
+- **ありきたりで終わりません。** エージェントはあなたのアイデアを、世界からランダムに引いた実在のもの（博物館の所蔵品、動物、宇宙から撮られた写真、昔の発明、史跡、伝統工芸）と掛け合わせます。だから届くのは誰もが最初に思いつく映画ではなく、あなた自身も考えなかった解釈です。
+- **同じことを繰り返しません。** どの提案も、あなたがこれまでに作った映画と照らし合わせるので、同じ映画を二度出すことはありません。
+- **最後に決めるのはあなたです。** 映画を何で作るかを選べます：本物の光の 3D、2D アニメーション、絵の具、インク、紙、粘土、モーショングラフィックス、ピクセル。実在の映画のスチルを並べたボードからルックを選び、映画全体を作る前に最初の 2 シーンを見て承認します。
 
 ### YouTube 向けの長尺動画
 
@@ -250,30 +254,45 @@ Cursor で空のフォルダーを開き、Agent チャットを開いて同じ�
 ## 中身
 
 ```text
-SKILL.md                 スキル本体：ルート、ヘルプメニュー、モードと目的の選択、両モードの概要、厳守ルール
-AGENTS.md                AGENTS.md を読むエージェント向けのポインター
-references/              ステアリング、審査、フィルムモード、クイックモード、脚本家プロンプト、目的（シネマティック、広告・製品）、映像編集、
-                         自分の音楽、リファレンス動画、カメラワーク、モーション、モーションデザイン、キャラクター（様式化されたキャスト）、仕上げ（品質のツールボックス）、コンテキストプロトコル、執筆、ルック、タイポグラフィ、サウンド、技法、エンジン、素材とライセンス
-templates/               INTERVIEW, ROADMAP, SCRIPT, STATE, HANDOFF, shots.example.json, LICENSES.csv,
-                         type-specimen.html, quick/（film.html スターター、HELPERS.md、REVIEWER.md、短い STATE.md）
-scripts/                 init_film.py, make.py, fonts.py, capture.mjs, animatic.py, mix.py, master_audio.py, qc.py,
-                         scene_check.py, validate_shots.py, asset_search.py, deal.py, styles.py, formats.py,
-                         direction.py, beat_grid.py, voice_treat.py, ref_video.py, keys.py, tts.py, snapshot.py,
-                         footage_cut.py, type_deal.py, type_refs.py, type_extract.py, captions.py,
-                         usage.py, guard.py, words_check.py, handoff.py, samples.py, sounds.py,
-                         moves.py, lyrics_align.py, brief.py, dice.py, hook.cjs（ガードを起動）,
-                         sparks.json と seeds.json（deal.py が引くデッキ）
-styles/                  58 のスタイルレシピ（51 は lemo-opuscar、MIT。7 はキット独自）+ index.json, aliases.json
-starter/                 scene.html + looks.mjs（three.js、8 つのルック、テキストオーバーレイ、モーションブラー、ゲートウィーブ、プリントカーブ）,
-                         camera.mjs（名前付きのカメラワーク）, type.mjs（書体の役割、トルコ語対応チェック）,
-                         index.html（オフラインのシェーダー）
+cinecode/
+├── SKILL.md              スキル本体：流れ、質問、厳守ルール。すべての映画チャットはここから始まります
+├── AGENTS.md             AGENTS.md を読むエージェント向けの入口
+├── references/           制作ガイド
+│   ├── quick-mode.md     クイックモードの手順
+│   ├── film-mode.md      フィルムモード：承認つきの 6 ステップ
+│   ├── writing.md        脚本、フック、予測テスト、重複チェック
+│   ├── looks.md          ルック、光、質感。craft.md と finish.md とあわせて
+│   ├── camera-moves.md   カメラ言語。動きは motion.md と motion-design.md
+│   ├── typography.md     タイポグラフィ。音は sound.md、自分の曲は music-video.md
+│   └── purpose-*.md      シネマティックな映画、または広告・プロダクト
+├── scripts/              ツール（Python 標準ライブラリと Node）
+│   ├── init_film.py      映画のフォルダを用意します
+│   ├── make.py           スチル、ドラフト、ファイナルをそれぞれ 1 コマンドで
+│   ├── capture.mjs       ヘッドレス Chrome で 1 フレームずつレンダリング
+│   ├── deal.py, dice.py  スパークと外部のサイコロ
+│   ├── direction.py      スタイルボード。styles.py、asset_search.py、fonts.py とあわせて
+│   ├── mix.py            ミックス。master_audio.py（−14 LUFS）、tts.py（ナレーション）、beat_grid.py
+│   ├── qc.py             品質チェック。scene_check.py、words_check.py とあわせて
+│   └── guard.py          ガード：ルールをその場で守らせます（hook.cjs とあわせて、Claude Code）
+├── templates/            新しい映画のファイルとクイックモードの開始ページ
+├── starter/              three.js シーン：8 つのルック、名前つきのカメラワーク、テキストレイヤー
+├── styles/               58 のスタイルレシピ（51 は lemo-opuscar、MIT。7 はキット独自）
+├── docs/                 README の画像とフォントライブラリ
+└── tests/                テストスイート。push のたびに Windows と Linux で実行
 ```
 
-キットが作る映画プロジェクトは次のようになります（クイックモード：`STATE.md film.html LICENSES.csv AGENTS.md refs/ research/ notes/ assets/ audio/ tools/ review/ renders/ logs/`。フィルムモードは以下）：
+キットが用意する映画フォルダ：
 
 ```text
-my-film/  STATE.md INTERVIEW.md ROADMAP.md SCRIPT.md HANDOFF.md shots.json LICENSES.csv AGENTS.md
-          refs/（あなたのリファレンス）  notes/（メモのラウンド）  engine/（シーン）  research/  audio/  assets/  tools/  review/  renders/  logs/
+my-film/
+├── <タイトル>.mp4        完成した映画
+├── STATE.md              映画の現在地。新しいチャットはここから続きます
+├── film.html             クイックモード：映画そのもの、1 ページのコード
+├── ROADMAP.md, SCRIPT.md フィルムモード：ロードマップと脚本。シーンは engine/ に
+├── refs/, research/      あなたのリファレンスとリサーチ
+├── audio/, assets/       音とダウンロードした素材。ライセンスは LICENSES.csv に
+├── review/, renders/     チェック用のフレームとドラフト
+└── tools/                この映画用のキットのツールのコピー
 ```
 
 **保存場所：** 映画はそれぞれ独立したフォルダーになります（完成した映画はその最上位に `<title>.mp4` として置かれます）。映画をまたいで引き継がれるものは `~/.cinecode/` に保存されます：API キー（`keys.env`、一度入力すれば OK）、保存したフォーマット、テイストログ、ダウンロードキャッシュ。キット自身のフォルダーに書き込むことはありません。
